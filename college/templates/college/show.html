@@ -1,0 +1,150 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{% static  'css/show.css' %}"
+      media="screen"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Add marks</title>
+  </head>
+  <body class="body001">
+    <div class="div000">
+      <div class="div001">
+        <div class="div002">
+          <p class="p001">Grade sys</p>
+        </div>
+        <div class="div003">
+          <div><a href="/login/" class="a001">Home</a></div>
+          <div><a href="/login/" class="a001">About us</a></div>
+          <div><a href="/login/" class="a001">Serves</a></div>
+        </div>
+        <div class="div004"><a href="/login/" class="a002">Sign in</a></div>
+      </div>
+      <div class="div005"></div>
+    </div>
+    <div class="div006">
+      <form method="POST" onsubmit="send()"  class="f0001">
+         {% csrf_token %}
+         <div class="div007">
+          <h1 class="h1001">Student list</h1>
+       <table border="1" class="tab001">
+        <tr><th class="td001">Student_id</th>
+            <th class="td002">First name</th>
+            <th class="td002">Last name</th>
+            <th class="td002">Stage</th>
+            <th class="td002">Department</th>
+            <th class="td002">Acadimic year</th>
+            <th class="td002">Email </th>
+
+            {%for studentInfo in students%}
+           <tr>
+            
+            
+            <td class="td001">{{ studentInfo.studentID }}</td>
+   
+            <td class="td002">{{ studentInfo.fname }}</td>
+
+            <td class="td002">{{ studentInfo.lname }}</td>
+            {%for stageInfo in stages%}
+            {% if stageInfo.studentID == studentInfo.studentID%}
+            <td class="td002">{{ stageInfo.stages }}</td>
+            <td class="td002">{{ stageInfo.department }}</td>{%endif%}{%endfor%}
+            
+            <td class="td002">{{ studentInfo.academic_year }}</td>
+            <td class="td002">{{ studentInfo.email }}</td>
+
+            
+           </tr>
+           
+           {%endfor%}
+        </tr>
+       </table >
+      </div>
+      <div class="div007">
+       <h4 class="h1002">Enter the stage to enter the grades</h4>
+
+       <input type="text" name="enteredstage" placeholder="Entere stage" id="entered" class="inp001">
+       <div>
+       <input type="submit" value="Save" class="btn0001" >
+       <input type="button" value="Show" class="btn0002"  onclick="toggleTable()">
+      </div>
+      </div>
+      </form>
+      <form method="POST" class="f0001">
+        {% csrf_token %}
+        <div>
+        <input type="text"  name="enteredstage" value="{{enteredstage}}" style="display: none;" id="hentered "><br><br>
+
+      <table border="1" id="gradesTable" style="display: none;"  class="tab001">
+      
+ <tr>
+    <th class="td001">Student id</th>
+    <th class="td002">First name</th>
+    <th class="td002"> Last name</th>
+    {%for names in subjectList%}
+    <th class="td002">{{names}}</th>
+    {%endfor%}
+ </tr>
+ {%for studentInfo in studentFilter%}
+ 
+ <tr>
+   
+   <td class="td001">{{studentInfo.studentID}}</td>
+   <td class="td002">{{studentInfo.fname}}</td>
+   <td class="td002">{{studentInfo.lname}}</td>
+   {%for subjects in subjectList%}
+   <td class="td002"><input type="text" name='grades[{{studentInfo.studentID}}][{{subjects}}]' class="in0002"></td>{%endfor%}
+   
+ </tr>{%endfor%}
+
+  </table>
+</div>
+<div>
+  <input type="submit" value="Save" id="saving"  style="display: none;" class="btn0001">
+  <a href="{%url 'grades'%}" class="a00001"><button id="viewGrades" class="btn0002"  type="button">View  </button></a>
+</div>
+   </form>
+  </div>
+<script>
+
+         
+
+          
+
+
+
+        function toggleTable() {
+          var viewGrades=  document.getElementById("viewGrades");
+            var table = document.getElementById("gradesTable");
+            var savedbutton=document.getElementById("saving");
+            if (table.style.display === "none" || table.style.display === "") {
+                table.style.display = "table";
+                savedbutton.style.display="inline-block";
+                viewGrades.style.display="inline-block"
+            } else {
+                table.style.display = "none";
+                savedbutton.style.display="none"
+                viewGrades.style.display="none"
+            }
+        }
+
+</script>
+    </body>
+    </html>

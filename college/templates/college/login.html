@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{% static  'css/login.css' %}"
+      media="screen"
+      rel="stylesheet"
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+    rel="stylesheet"
+  />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="div0">
+      <div class="div1">
+        <div > 
+          <img src="{% static "images/photo_2024-01-16_16-46-10.jpg" %} "
+          width="770" height="550"   class="im01"/>
+        </div>
+        <form class="fm01" action="/login/" method="post">
+          {% csrf_token %}
+        <div  class="div2">
+          <div class="div3">
+          <h1 class="h01">Welcome back!</h1>
+            <p class="p01"> 
+              Welcome to our grading system ,here you can organize all students
+              assignment
+            </p>
+          </div>
+          <div>
+            <p class="p02">Email</p>
+            <input type="email"   class="in2" placeholder="Email" name="Email"/>
+          </div>
+          <div>
+            <p class="p02">Password</p>
+            <input type="password"  class="in3" placeholder="Password" name="Paasword"/>
+            <div class="div4"><a href="# " class="a01"></a></div>
+          </div>
+          {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+                  <li class="{{ message.tags }}">{{ message }}</li>
+              {% endfor %}
+          </ul>
+      {% endif %}
+          <div class="div5"><button type= "submit" class="btn01">Login</button></div> 
+          <div ><a href="/slider" class="a02">Create a new acouunt</a></div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

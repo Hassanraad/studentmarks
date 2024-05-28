@@ -1,0 +1,156 @@
+body
+{
+margin: 0;
+}
+.div0{
+    display: flex;
+    align-items: center;
+    width: 100%;
+background-color: #EBECEA;
+height: 641px;
+}
+.div1{
+    margin: 0 auto;
+    width: 87%;
+    background-color: #EFEFEF;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    border-radius: 5px;
+    box-shadow: 1px 2px 20px 0 rgb(0 0 0 / 25%);
+}
+.h01{
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #517CBD;
+    margin-top: 30px;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+
+}
+.fm01{
+    display: flex;
+    flex-direction: column;
+    height: 520px;
+    margin-block-end: 0;
+    align-items: center;
+    width:100%;
+}
+
+.div2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 520;
+}
+.div3{
+    width: 258px;
+    margin-top: 15px;
+}
+.p01{
+    font-size: 14px;
+    color: #AEAAAA;
+    margin-bottom: 35px;
+}
+.p02{
+    font-size: 14px;
+    margin-left: 4px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: #504C4C;
+    margin-bottom: 5px;
+
+}
+
+.in2{
+    background-color: #FCFCFC;
+    border-radius: 5px;
+    width: 255px;
+    box-sizing: unset;
+    border: unset;
+    height: 28px;
+    outline: 0px;
+    margin-bottom: 7px;
+    font-family: 'Roboto', sans-serif;
+
+}
+.in3{
+    background-color: #FCFCFC;
+    border-radius: 5px;
+    width: 255px;
+    box-sizing: unset;
+    border: unset;
+    height: 28px;
+    outline: 0px;
+    margin-bottom: 4px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+input[type="text" ]{
+    font-family: 'Roboto', sans-serif;
+    color: #504C4C;
+
+}
+a{
+    font-family: 'Roboto', sans-serif;
+
+}
+.a01{
+    color: #1555B6;
+    font-size: 13px;
+    margin-left: 4px;
+    margin-bottom: 10px;
+}
+.div4{
+    margin-bottom: 25px;
+}
+.div5{
+    margin: 5px 0px 25px;
+}
+.btn01{
+    padding: 5px 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color:#504C4C;
+    background-color: #6BA9E1;
+    border: 0.1px solid #504C4C;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+
+}
+.a01:hover{
+    color: #589bd6;
+
+}
+.a02:hover{
+    color: #589bd6;
+
+}
+.btn01:hover{
+    background-color: #589bd6;
+
+}
+.a02{
+    color: #1555B6;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.im01{
+    border-radius: 5px 0px 0px 5px;
+}
+.messages{
+    width: 100%;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: crimson;
+    font-family: 'Roboto', sans-serif;
+
+}

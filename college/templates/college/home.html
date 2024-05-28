@@ -1,0 +1,98 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static  'css/home.css' %}" media="screen" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Student registration</title>
+  </head>
+  <body class="body001">
+    <div class="div000">
+      <div class="div001">
+        <div class="div002">
+          <p class="p001">Grade sys</p>
+        </div>
+        <div class="div003">
+          <div><a href="/login/" class="a001">Home</a></div>
+          <div><a href="/login/" class="a001">About us</a></div>
+          <div><a href="/login/" class="a001">Serves</a></div>
+        </div>
+        <div class="div004"><a href="/login/" class="a002">Sign in</a></div>
+      </div>
+      <div class="div005"></div>
+    </div>
+    <div class="div007">
+      <form method="POST" class="form001">
+        {% csrf_token %}
+        <div class="div006">
+          <lable class="lab001">First name:</lable>
+          <input
+            type="text"
+            placeholder="first name"
+            name="fname"
+            class="inp001"
+          />
+          <lable class="lab001">Last name:</lable>
+          <input
+            type="text"
+            placeholder="second name"
+            name="lname"
+            class="inp001"
+          />
+          <lable class="lab001">Email:</lable>
+          <input
+            type="email"
+            placeholder="email "
+            name="email"
+            class="inp001"
+          />
+          <lable class="lab001">University ID:</lable>
+          <input
+            type="text"
+            placeholder="unversity ID"
+            name="id"
+            class="inp001"
+          />
+          <lable class="lab001">Department:</lable>
+          <input
+            type="text"
+            placeholder=" department"
+            name="dep"
+            class="inp001"
+          />
+          <lable class="lab001">Stage:</lable>
+          <input type="text" placeholder="stage" name="stage" class="inp001" />
+          <lable class="lab001">Academic year:</lable>
+          <input
+            type="text"
+            placeholder="academic year"
+            name="acdyear"
+            class="inp001"
+          />
+        </div>
+        <div class="div009">
+          <button type="submit" class="btn1">Sumbit</button>
+          <a href="{%url 'subjects'%}" class="btn0">Next </a>
+        </div>
+      </form>
+      <div class="div008">
+        <img src="{% static "image/Rectangle 26.png" %} " width="700"
+        height="570" class="im01"/>
+      </div>
+    </div>
+  </body>
+</html>

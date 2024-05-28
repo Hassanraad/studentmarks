@@ -1,0 +1,250 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{% static  'css/subject.css' %}"
+      media="screen"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>subjects</title>
+  </head>
+  <body class="body001">
+    <div class="div000">
+      <div class="div001">
+        <div class="div002">
+          <p class="p001">Grade sys</p>
+        </div>
+        <div class="div003">
+          <div><a href="/login/" class="a001">Home</a></div>
+          <div><a href="/login/" class="a001">About us</a></div>
+          <div><a href="/login/" class="a001">Serves</a></div>
+        </div>
+        <div class="div004"><a href="/login/" class="a002">Sign in</a></div>
+      </div>
+      <div class="div005"></div>
+    </div>
+    <div class="div006">
+      <form method="POST" class="fm000">
+        {% csrf_token %}
+        <div class="div007">
+          <div class="div008">
+            <h3 class="h001">stage 1</h3>
+            <div id="container-table">
+              <table id="subjectTable" width="20%">
+                <tr>
+                  <th class="th001">Subject</th>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="subjects1[]"
+                      size="30"
+                      class="inp001"
+                    />
+                  </td>
+                </tr>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <button onclick="addRow()" type="button" class="btn001">Add</button>
+          </div>
+
+          <div class="div008">
+            <h3 class="h001">stage 2</h3>
+            <div id="container-table2">
+              <table id="subjectTable2" width="20%">
+                <tr>
+                  <th class="th001">Subject</th>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="subjects2[]"
+                      size="30"
+                      class="inp001"
+                    />
+                  </td>
+                </tr>
+                <tbody></tbody>
+              </table>
+            </div>
+            <button onclick="addRow2()" type="button" class="btn001">
+              Add
+            </button>
+          </div>
+        </div>
+        <div class="div009">
+          <div class="div008">
+            <h3 class="h001">stage 3</h3>
+            <div id="container-table2">
+              <table id="subjectTable3" width="20%">
+                <tr>
+                  <th class="th001">Subject</th>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="subjects3[]"
+                      size="30"
+                      class="inp001"
+                    />
+                  </td>
+                </tr>
+                <tbody></tbody>
+              </table>
+            </div>
+            <button onclick="addRow3()" type="button" class="btn001">
+              Add
+            </button>
+          </div>
+          <div class="div008">
+            <h3 class="h001">stage 4</h3>
+            <div id="container-table2">
+              <table id="subjectTable4" width="20%">
+                <tr>
+                  <th class="th001">Subject</th>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="subjects4[]"
+                      size="30"
+                      class="inp001"
+                    />
+                  </td>
+                </tr>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <button onclick="addRow4()" type="button" class="btn001">
+              Add
+            </button>
+          </div>
+        </div>
+
+        <div class="div010">
+          <input type="submit" value="save" class="btn002" />
+          <input
+            type="button"
+            value="delete subjects"
+            onclick="toggleTable()"
+            class="inp003"
+          />
+        </div>
+
+        <table id="sub1" style="display: none">
+          <tr>
+            <td>
+              <p id="deleting" class="p002">
+                Are you sure want to delete all subjects and grades?
+                <input
+                  type="checkbox"
+                  value="yes"
+                  id="selected"
+                  name="checked"
+                  class="chk001"
+                />
+                yes
+              </p>
+            </td>
+          </tr>
+        </table>
+        <input
+          type="submit"
+          value="delete"
+          id="saving"
+          style="display: none"
+          class="btn003"
+        />
+        <a href="{%url 'show'%}" class="a003"> view student tabel</a>
+      </form>
+    </div>
+    <script>
+      function addRow() {
+        var table = document
+          .getElementById("subjectTable")
+          .getElementsByTagName("tbody")[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cell1 = newRow.insertCell(0);
+        var subjectInput = document.createElement("input");
+        subjectInput.type = "text";
+        subjectInput.name = "subjects1[]";
+        subjectInput.size = 30;
+        cell1.appendChild(subjectInput);
+      }
+
+      function addRow2() {
+        var table = document
+          .getElementById("subjectTable2")
+          .getElementsByTagName("tbody")[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cell1 = newRow.insertCell(0);
+        var subjectInput = document.createElement("input");
+        subjectInput.type = "text";
+        subjectInput.name = "subjects2[]";
+        subjectInput.size = 30;
+        cell1.appendChild(subjectInput);
+      }
+
+      function addRow3() {
+        var table = document
+          .getElementById("subjectTable3")
+          .getElementsByTagName("tbody")[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cell1 = newRow.insertCell(0);
+        var subjectInput = document.createElement("input");
+        subjectInput.type = "text";
+        subjectInput.name = "subjects3[]";
+        subjectInput.size = 30;
+        cell1.appendChild(subjectInput);
+      }
+
+      function addRow4() {
+        var table = document
+          .getElementById("subjectTable4")
+          .getElementsByTagName("tbody")[0];
+        var newRow = table.insertRow(table.rows.length);
+        var cell1 = newRow.insertCell(0);
+        var subjectInput = document.createElement("input");
+        subjectInput.type = "text";
+        subjectInput.name = "subjects4[]";
+        subjectInput.size = 30;
+        cell1.appendChild(subjectInput);
+      }
+
+      function toggleTable() {
+        var table = document.getElementById("sub1");
+        var savedbutton = document.getElementById("saving");
+        if (table.style.display === "none" || table.style.display === "") {
+          table.style.display = "table";
+          savedbutton.style.display = "inline-block";
+        } else {
+          table.style.display = "none";
+          savedbutton.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

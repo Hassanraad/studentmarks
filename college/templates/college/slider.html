@@ -1,0 +1,160 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="{% static  'css/slider.css' %}"
+      media="screen"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Slider</title>
+  </head>
+  <body>
+    <div class="div000">
+      <div class="div001">
+        <div class="div002">
+          <p class="p001">Grade sys</p>
+        </div>
+        <div class="div003">
+          <div><a href="/login/" class="a001">Home</a></div>
+          <div><a href="/login/" class="a001">About us</a></div>
+          <div><a href="/login/" class="a001">Serves</a></div>
+        </div>
+        <div class="div004"><a href="/login/" class="a002">Sign in</a></div>
+      </div>
+      <div class="div005"></div>
+    </div>
+    <div class="div006">
+      <div class="div007">
+        <p class="p002">Degrees Elevated, Success Achieved</p>
+        <p class="p003">
+          Simplify grading, amplify success. Your seamless path to managing
+          student degrees effortlessly
+        </p>
+      </div>
+      <div class="div008">
+        <img src="{% static "images/Rectangle 10.png" %} " width="600"
+        height="600" class="im01"/>
+      </div>
+    </div>
+    <div class="div006">
+      <div class="div009">
+        <div class="div011">
+          <div>
+            <img src="{% static "images/Rectangle 14.png" %} " width="100"
+            height="100" class="im01"/>
+          </div>
+          <div>
+            <p class="p004">
+              Our application ensures secure access to all student information
+              by teachers
+            </p>
+          </div>
+        </div>
+        <div class="div011">
+          <div>
+            <img src="{% static "images/Rectangle 15.png" %} " width="100"
+            height="100" class="im01"/>
+          </div>
+          <div>
+            <p class="p004">
+              Our website provides teachers with the ability to view complete
+              information about registered students
+            </p>
+          </div>
+        </div>
+        <div class="div011">
+          <div>
+            <img src="{% static "images/Rectangle 16.png" %} " width="100"
+            height="100" class="im01"/>
+          </div>
+          <div>
+            <p class="p004">
+              Through our website, teachers will be able to register students
+              and enter their information and exam grades
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="div010">
+        <img src="{% static "images/Rectangle 11.png" %} " width="770"
+        height="600" class="im01"/>
+      </div>
+    </div>
+    <div class="div012">
+      <div class="div013">
+        <img src="{% static "images/Rectangle 17.png" %} " width="800"
+        height="600" class="im01"/>
+      </div>
+      <div class="div014">
+        <div class="div015">
+          <div><p class="p005">Grade sys</p></div>
+          <div><p  class="p006">Sign up</p></div>
+        </div>
+      <form action="/slider/" method="post"  class="form001">
+        {% csrf_token %}
+        <div>
+          <lable class="lab001"> Name:</lable>
+          <br />
+          <input type="text" name="name1" id="nam1" placeholder="Name"  class="inp001" />
+        </div>
+        <div>
+          <lable class="lab001">Password:</lable>
+          <br />
+          <input
+            type="password"
+            name="password"
+            id="pass"
+            placeholder="Password"
+            class="inp001"
+          />
+        </div>
+        <div>
+          <lable class="lab001">Email:</lable> <br /><input
+            type="email"
+            name="email"
+            id="em1"
+            placeholder="Email"
+            class="inp001"
+          />
+        </div>
+        <div>
+          <lable class="lab001">Department:</lable> <br /><input
+            type="text"
+            name="department"
+            id="dep1"
+            placeholder="Department"
+            class="inp002"
+          />
+          
+        </div>
+        <a href="/login/" class="a003">Have another account</a>
+        {% if messages %}
+        <ul class="messages" >
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        <button type="submit" class="btn02"> Signup</button>
+        
+      </form>
+      <div>
+    </div>
+  </body>
+</html>

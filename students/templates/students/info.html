@@ -1,0 +1,80 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static  'css/info.css' %}" media="screen" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Info</title>
+  </head>
+  <body>
+    <form method="POST" class="row fluid">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="name"
+        placeholder="enter your name"
+      /><br /><br />
+      <input
+        type="text"
+        name="unid"
+        placeholder="enter your university id"
+      /><br /><br />
+      <input
+        type="text"
+        name="dep"
+        placeholder="enter your department"
+      /><br /><br />
+      <input
+        type="text"
+        name="stage"
+        placeholder="enter your stage"
+      /><br /><br />
+      <br />
+
+      <button type="submit">sumbit</button>
+      <br />
+      <br />
+      <table border="1" width="50%">
+        <tr>
+          <th>name</th>
+          <th>universityID</th>
+          <th>department</th>
+          <th>stage</th>
+        </tr>
+        <tr>
+          <th>
+            {%for data in data%}{{data.name}} <br />
+            {%endfor%}
+          </th>
+          <th>
+            {%for data in data%}{{data.universityID}} <br />
+            {%endfor%}
+          </th>
+          <th>
+            {%for data in data%}{{data.department}} <br />
+            {%endfor%}
+          </th>
+          <th>
+            {%for data in data%}{{data.stage}} <br />
+            {%endfor%}
+          </th>
+        </tr>
+      </table>
+    </form>
+    <script text="javascript"></script>
+  </body>
+</html>
